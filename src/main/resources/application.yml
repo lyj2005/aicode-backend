@@ -3,48 +3,49 @@ server:
   port: 8080
   servlet:
     context-path: /api
-    # cookie 30 ???
+    # cookie 30 天过期
     session:
       cookie:
         max-age: 2592000
 
 spring:
   application:
-    name:aicode-backend
+    name:bi-backend
 
-  # ?? dev ??
+  # 默认 dev 环境
   profiles:
     active: dev
 
-  # ?? swagger3
+  # 支持 swagger3
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-  # session ??
+  # session 配置
   session:
     # store-type: redis
-    # 30 ???
+    # 30 天过期
     timeout: 2592000
 
-  # ?????
+  # 数据库配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/bi
     username: root
     password: 1234
-  # Redis ??
+  # Redis 配置
   data:
     redis:
       host: 127.0.0.1
       database: 1
       port: 6379
       timeout: 5000
+
   rabbitmq:
     host: localhost
     port: 5672
     username: guest
     password: guest
-    # ???mq?
+    # 不使用mq时
     listener:
       simple:
         auto-startup: false
@@ -58,15 +59,15 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
-      logic-delete-field: isDelete # ????????????
-      logic-delete-value: 1 # ?????????? 1?
-      logic-not-delete-value: 0 # ?????????? 0?
+      logic-delete-field: isDelete # 全局逻辑删除的实体字段名
+      logic-delete-value: 1 # 逻辑已删除值（默认为 1）
+      logic-not-delete-value: 0 # 逻辑未删除值（默认为 0）
 
-# ??????
+# 接口文档配置
 knife4j:
   enable: true
   openapi:
-    title: "????"
+    title: "接口文档"
     version: 1.0
     group:
       default:
@@ -74,16 +75,12 @@ knife4j:
         api-rule-resources:
           - com.lyj.bi.controller
 
-# DeepSeek AI??
+# DeepSeek AI配置
 deepseek:
   api:
-    key: sk-7e70e41ac25b4cfca80b5571bda8c89b  # ???????API Key
+    key: sk-7e70e41ac25b4cfca80b5571bda8c89b  # 替换为你的真实API Key
     base-url: https://api.deepseek.com
-    model: deepseek-chat  # ???????
-    max-tokens: 2000      # ??token?
-    temperature: 0.7      # ????
-
-
-
-
+    model: deepseek-chat  # 使用的模型名称
+    max-tokens: 2000      # 最大token数
+    temperature: 0.7      # 温度参数
 
