@@ -5,6 +5,7 @@ package com.lyj.aicode.common;
  */
 public enum ErrorCode {
 
+    //1. 自定义错误码
     SUCCESS(0, "ok"),
     PARAMS_ERROR(40000, "请求参数错误"),
     NOT_LOGIN_ERROR(40100, "未登录"),
@@ -15,16 +16,11 @@ public enum ErrorCode {
     SYSTEM_ERROR(50000, "系统内部异常"),
     OPERATION_ERROR(50001, "操作失败");
 
-    /**
-     * 状态码
-     */
+    //2. 定义信息
     private final int code;
-
-    /**
-     * 信息
-     */
     private final String message;
 
+    //3. 构造方法
     ErrorCode(int code, String message) {
         this.code = code;
         this.message = message;

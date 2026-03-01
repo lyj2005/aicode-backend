@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class DeleteRequest implements Serializable {
 
     /**
-     * id
+     * 根据id删除
      */
     private Long id;
 

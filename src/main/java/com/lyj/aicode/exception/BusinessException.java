@@ -7,16 +7,16 @@ import com.lyj.aicode.common.ErrorCode;
  */
 public class BusinessException extends RuntimeException {
 
-    /**
-     * 错误码
-     */
+    //1. 定义错误码
     private final int code;
 
+    //2. 构造器
     public BusinessException(int code, String message) {
         super(message);
         this.code = code;
     }
 
+    //3. 自定义构造器
     public BusinessException(ErrorCode errorCode) {
         super(errorCode.getMessage());
         this.code = errorCode.getCode();
@@ -27,6 +27,7 @@ public class BusinessException extends RuntimeException {
         this.code = errorCode.getCode();
     }
 
+    //4. get方法
     public int getCode() {
         return code;
     }

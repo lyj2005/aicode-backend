@@ -5,6 +5,7 @@ import com.lyj.aicode.common.ErrorCode;
 
 /**
  * 抛异常工具类
+ * 使用静态方法
  */
 public class ThrowUtils {
 

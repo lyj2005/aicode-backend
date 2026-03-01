@@ -2,6 +2,7 @@ package com.lyj.aicode.common;
 
 /**
  * 返回工具类
+ * 使用静态方法
  */
 public class ResultUtils {
 
